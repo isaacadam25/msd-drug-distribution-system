@@ -16,7 +16,6 @@ const headCells = [
 
 const ReceivedMedicineTable = (props) => {
   const { items } = props;
-  console.log(items);
 
   return (
     <>
@@ -37,9 +36,7 @@ const ReceivedMedicineTable = (props) => {
                 <td>{item.unit_measure}</td>
                 <td>{item.quantity_received}</td>
                 <td>{item.quantity_received * item.unit_measure}</td>
-
-                {/* <td>{item.date_approved}</td> */}
-                <td>{item.expiry_date}</td>
+                <td>{item.date_approved}</td>
               </tr>
             ))}
         </tbody>
