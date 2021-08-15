@@ -7,10 +7,10 @@ const SelectController = (props) => {
         <>
             <label htmlFor={id} className="form-label">{ label }</label>
             <select className="form-select" value={value} onChange={onChange} name={name} aria-label={id}>
-                <option selected>Open this select menu</option>
+                <option defaultValue>Open this select menu</option>
                 {
                     options.map( option => (
-                        <option key={option.id} value={option.id}>{option.title}</option>
+                        <option key={option.id} value={option.id}>{option.batch_number}</option>
                     ))
                 }
             </select>

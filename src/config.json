@@ -1,3 +1,4 @@
 {
-  "apiUrl" : "apis/v1/dts/"
+  "apiUrl": "/apis/v1/dts",
+  "msdApi" : "/apis/v1/msd"
 }

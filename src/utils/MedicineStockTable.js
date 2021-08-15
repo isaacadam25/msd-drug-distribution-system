@@ -3,31 +3,35 @@ import TableController from "../controller/TableController";
 import TableHeadController from "../controller/TableHeadController";
 
 const headCells = [
-    { id: 0, title: "#" },
-    { id: 1, title: "Reference No" },
+    { id: 0, title: "Reference No" },
+    { id: 1, title: "Batch No" },
     { id: 2, title: "Medicine Name" },
-    { id: 3, title: "Concentration" },
-    { id: 4, title: "Unit of Measure" },
-    { id: 5, title: "Medicine Type" },
-    { id: 6, title: "Quantity Received" }
+    { id: 4, title: "Manufacturer" },
+    { id: 5, title: "Quantity" },
+    { id: 6, title: "Status" },
 ];
 
-const MedicineStockTable = () => {
+const MedicineStockTable = (props) => {
+    const { pendingIncoming } = props;
+
     return (
         <>
-            <h6 className="h6 text-muted text-center p-1">Medicine Stock</h6>
+            <h6 className="h6 text-center p-1">Order Transactions</h6>
             <TableController>
                 <TableHeadController headCells={headCells}  />
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>RF100978</td>
-                    <td>Panadol</td>
-                    <td>500mg</td>
-                    <td>1000</td>
-                    <td>Tablets</td>
-                    <td>2000</td>
-                </tr>
+                {
+                    pendingIncoming.map(item => (
+                        <tr key={item.id}>
+                            <td>{item.reference_number}</td>
+                            <td>{item.batch_number}</td>
+                            <td>{item.drug_name}</td>
+                            <td>{item.drug_manufacturer}</td>
+                            <td>{item.quantity}</td>
+                            <td>{item.is_accepted ? "Accepted" : "Pending"}</td>
+                        </tr>
+                    ))
+                }
                 </tbody>
             </TableController>
         </>
